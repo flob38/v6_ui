@@ -53,6 +53,8 @@ def main(global_config, **settings):
     config.add_route('waypoints_index', '/waypoints')
     config.add_route('waypoints_add', '/waypoints/add')
     config.add_route('waypoints_edit', '/waypoints/edit/{id:\d+}/{lang}')
+    config.add_route('waypoints_edit_archive',
+                     '/waypoints/edit/{id:\d+}/{lang}/{version:\d+}')
     config.add_route('waypoints_history', '/waypoints/history/{id:\d+}/{lang}')
     config.add_route('waypoints_archive',
                      '/waypoints/{id:\d+}/{lang}/{version:\d+}')
@@ -66,6 +68,8 @@ def main(global_config, **settings):
     config.add_route('routes_index', '/routes')
     config.add_route('routes_add', '/routes/add')
     config.add_route('routes_edit', '/routes/edit/{id:\d+}/{lang}')
+    config.add_route('routes_edit_archive',
+                     '/routes/edit/{id:\d+}/{lang}/{version:\d+}')
     config.add_route('routes_history', '/routes/history/{id:\d+}/{lang}')
     config.add_route('routes_archive', '/routes/{id:\d+}/{lang}/{version:\d+}')
     config.add_route('routes_view', '/routes/{id:\d+}/{lang}/{slug}')
@@ -78,6 +82,8 @@ def main(global_config, **settings):
     config.add_route('outings_index', '/outings')
     config.add_route('outings_add', '/outings/add')
     config.add_route('outings_edit', '/outings/edit/{id:\d+}/{lang}')
+    config.add_route('outings_edit_archive',
+                     '/outings/edit/{id:\d+}/{lang}/{version:\d+}')
     config.add_route('outings_history', '/outings/history/{id:\d+}/{lang}')
     config.add_route('outings_archive',
                      '/outings/{id:\d+}/{lang}/{version:\d+}')
@@ -91,6 +97,8 @@ def main(global_config, **settings):
     config.add_route('articles_index', '/articles')
     config.add_route('articles_add', '/articles/add')
     config.add_route('articles_edit', '/articles/edit/{id:\d+}/{lang}')
+    config.add_route('articles_edit_archive',
+                     '/articles/edit/{id:\d+}/{lang}/{version:\d+}')
     config.add_route('articles_history', '/articles/history/{id:\d+}/{lang}')
     config.add_route('articles_archive',
                      '/articles/{id:\d+}/{lang}/{version:\d+}')
@@ -104,6 +112,8 @@ def main(global_config, **settings):
     config.add_route('books_index', '/books')
     config.add_route('books_add', '/books/add')
     config.add_route('books_edit', '/books/edit/{id:\d+}/{lang}')
+    config.add_route('books_edit_archive',
+                     '/books/edit/{id:\d+}/{lang}/{version:\d+}')
     config.add_route('books_history', '/books/history/{id:\d+}/{lang}')
     config.add_route('books_archive',
                      '/books/{id:\d+}/{lang}/{version:\d+}')
@@ -129,6 +139,8 @@ def main(global_config, **settings):
 
     config.add_route('images_index', '/images')
     config.add_route('images_edit', '/images/edit/{id:\d+}/{lang}')
+    config.add_route('images_edit_archive',
+                     '/images/edit/{id:\d+}/{lang}/{version:\d+}')
     config.add_route('images_history', '/images/history/{id:\d+}/{lang}')
     config.add_route('images_archive',
                      '/images/{id:\d+}/{lang}/{version:\d+}')
@@ -141,6 +153,8 @@ def main(global_config, **settings):
 
     config.add_route('areas_index', '/areas')
     config.add_route('areas_edit', '/areas/edit/{id:\d+}/{lang}')
+    config.add_route('areas_edit_archive',
+                     '/areas/edit/{id:\d+}/{lang}/{version:\d+}')
     config.add_route('areas_history', '/areas/history/{id:\d+}/{lang}')
     config.add_route('areas_archive',
                      '/areas/{id:\d+}/{lang}/{version:\d+}')
