@@ -1,6 +1,6 @@
 <%!
 from c2corg_common.attributes import activities, image_categories, image_types
-from c2corg_ui.templates.utils import get_lang_lists
+from c2corg_ui.templates.utils import get_lang_lists, has_associations
 from json import dumps
 %>
 
@@ -137,9 +137,14 @@ other_langs, missing_langs = get_lang_lists(xreport, lang)
 
   ## ASSOCIATIONS
   % if not version:
-    <div class="view-details-associations col-xs-12 associations">
+    <div class="view-details-associations col-xs-12 associations"
+      % if not has_associations(xreport):
+         ng-show="userCtrl.hasEditRights('xreports', {'authorId': ${xreport['author']['user_id']}})"
+      % endif
+    >
       <span class="lead">
-        <div ng-show="userCtrl.auth.isAuthenticated()" class="add-association">
+        <div class="add-association" ng-show="userCtrl.auth.isAuthenticated()
+          && userCtrl.hasEditRights('xreports', {'authorId': ${xreport['author']['user_id']}})">
           <label translate>Add association</label>
           <app-add-association parent-doctype="xreports" parent-id="${xreport_id}" dataset="wrc"></app-add-association>
         </div>
@@ -156,12 +161,10 @@ other_langs, missing_langs = get_lang_lists(xreport, lang)
         </section>
       </span>
     </div>
-  % endif
 
-  ${get_comments()}
+    ${get_comments()}
 
   ## OTHER BUTTON contents
-  % if not version:
     ${show_other_langs_links('xreports', xreport, other_langs)}
     ${show_missing_langs_links('xreports', xreport, missing_langs)}
     ${show_float_buttons(xreport, lang, other_langs, missing_langs)}
