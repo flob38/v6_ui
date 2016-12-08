@@ -154,8 +154,14 @@ other_langs, missing_langs = get_lang_lists(xreport, lang)
           ${show_associated_articles(xreport)}
           ${show_associated_outings(xreport)}
 
+          ## TODO delete this div
           <div id="xreports-data">
             <p>there should be personal data if you have access</p>
+          </div>
+
+          ## TODO delete this div
+          <div ng-show="userCtrl.hasEditRights('xreports', {'authorId': ${xreport['author']['user_id']}})">
+            TEST jestli muzu mazat asociace
           </div>
 
         </section>
