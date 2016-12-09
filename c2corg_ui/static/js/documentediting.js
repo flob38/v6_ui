@@ -243,6 +243,9 @@ app.DocumentEditingController.prototype.successRead = function(response) {
   if (this.modelName === 'image') {
     data['date_time'] = new Date(data['date_time']);
   }
+  if (this.modelName === 'xreport') {
+    data['date'] = new Date(data['date']);
+  }
   this.scope[this.modelName] = this.scope['document'] = this.documentService.document = data;
   this.scope.$root.$emit('documentDataChange', data);
 };
