@@ -1,5 +1,6 @@
 <%def name="add_doctype_selector()">\
-  <select class="form-control select-document" onchange="window.location = this.value;">
+  <div app-doctype-selector>
+  <select class="form-control select-document" onchange="doctypeCtrl.redirectTo(this.value);">
     <option translate value="${request.route_path('routes_index')}" ng-selected="{{mainCtrl.isPath('routes')}}">Routes</option>
     <option translate value="${request.route_path('waypoints_index')}" ng-selected="{{mainCtrl.isPath('waypoints')}}">Waypoints</option>
     <option translate value="${request.route_path('outings_index')}" ng-selected="{{mainCtrl.isPath('outings')}}">Outings</option>
@@ -7,6 +8,7 @@
     <option translate value="${request.route_path('books_index')}" ng-selected="{{mainCtrl.isPath('books')}}">Books</option>
     <option translate value="${request.route_path('areas_index')}" ng-selected="{{mainCtrl.isPath('areas')}}">Areas</option>
   </select>
+  </div>
 </%def>
 
 <%def name="add_pagination_links(module, documents, total, params)">\
