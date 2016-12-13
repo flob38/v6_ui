@@ -330,9 +330,31 @@
 
 
 .documents-list-section-container {
-  position: relative;
-  &.no-map .documents-list-section, &.no-map .page-main-title {
-    width: 100%;
+  .flex();
+
+  &.no-map {
+    .page-main-title, .documents-list-section {
+      flex-basis: 100%;
+    }
+  }
+  &.no-list  .documents-list-section {
+    flex-basis: 0;
+  }
+  .no-list-btn {
+    padding: 4px 2px 0 8px;
+    font-size: 20px;
+  }
+  .no-map-btn {
+    position: absolute;
+    .calc(top, "100% - 90px");
+    z-index: 2;
+    margin-left: 10px;
+    .glyphicon {
+      color: white;
+    }
+    &.show-list {
+      .calc(top, "100% - 130px");
+    }
   }
 }
 .documents-list-section, .not-found-section, .map-right .map {
@@ -341,15 +363,13 @@
 }
 
 .documents-list-section, .not-found-section {
-  float: left;
   background-color: @lightgrey;
-  position: relative;
-  width: @list-width;
   overflow: auto;
+  flex-basis: @list-width;
+  transition: .3s;
 
   @media @phone {
-    width: 100%;
-    float:none;
+    flex-basis: 100%;
     padding-top: 35px;
     .calc(height, "100vh - 92px");
   }
